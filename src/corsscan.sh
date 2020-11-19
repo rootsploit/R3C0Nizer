@@ -52,13 +52,13 @@ echo "${yellow} ---------------------------------- xxxxxxxx --------------------
 echo " "
 if [ -f ~/reconizer/tools/Corsy/corsy.py ]
 then
-  echo "${magenta} [+] Running S3Scanner for S3 Bucket Enumeration${reset}"
+  echo "${magenta} [+] Running CORSY Scanner ${reset}"
   python3 ~/reconizer/tools/Corsy/corsy.py -i ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t 25 -o ~/reconizer/$DOM/CORS_Scan/CORS_result.json
 else
-  echo "${blue} [+] Installing S3Scanner ${reset}"
+  echo "${blue} [+] Installing CORSY Scanner ${reset}"
   git clone https://github.com/s0md3v/Corsy ~/reconizer/tools/Corsy
   pip install -r ~/reconizer/tools/Corsy/requirements.txt
-  echo "${magenta} [+] Running S3Scanner for S3 Bucket Enumeration${reset}"
+  echo "${magenta} [+] Running CORSY Scanner on targets ${reset}"
   python3 ~/reconizer/tools/Corsy/corsy.py -i ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t 25 -o ~/reconizer/$DOM/CORS_Scan/CORS_result.json
 fi
 
