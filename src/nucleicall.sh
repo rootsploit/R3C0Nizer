@@ -48,6 +48,8 @@ then
   nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/cves/ -c 200 -o ~/reconizer/$DOM/nuclei/cves_results.txt
   nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/files/ -c 200 -o ~/reconizer/$DOM/nuclei/files_results.txt
   nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/vulnerabilities/ -c 200 -o ~/reconizer/$DOM/nuclei/vulnerabilities_results.txt
+  nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/security-misconfiguration/ -c 200 -o ~/reconizer/$DOM/nuclei/sec-misconf_results.txt
+  nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/default-credentials/ -c 200 -o ~/reconizer/$DOM/nuclei/default-creds_results.txt
 else
   echo "${blue} [+] Installing nuclei ${reset}"
   go get -u github.com/projectdiscovery/nuclei/v2/cmd/nuclei
@@ -56,6 +58,8 @@ else
   nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/cves/ -c 200 -o ~/reconizer/$DOM/nuclei/cves_results.txt
   nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/files/ -c 200 -o ~/reconizer/$DOM/nuclei/files_results.txt
   nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/vulnerabilities/ -c 200 -o ~/reconizer/$DOM/nuclei/vulnerabilities_results.txt
+  nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/security-misconfiguration/ -c 200 -o ~/reconizer/$DOM/nuclei/sec-misconf_results.txt
+  nuclei -l ~/reconizer/$DOM/Subdomains/all-alive-subs.txt -t ~/nuclei-templates/default-credentials/ -c 200 -o ~/reconizer/$DOM/nuclei/default-creds_results.txt
 fi
 
 echo "${yellow} ---------------------------------- xxxxxxxx ---------------------------------- ${reset}"
