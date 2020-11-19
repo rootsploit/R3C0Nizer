@@ -45,12 +45,25 @@ echo " "
 if [ -f ~/go/bin/waybackurls ]
 then
  echo "${magenta} [+] Running Waybackurls for finding archive based assets${reset}"
- cat  ~/reconizer/$DOM/Subdomains/all-alive-subs.txt | waybackurls >> ~/reconizer/$DOM/Archivescan/waybackurls.txt 
+ #cat  ~/reconizer/$DOM/Subdomains/all-alive-subs.txt | waybackurls >> ~/reconizer/$DOM/Archivescan/waybackurls.txt 
+ 
+ input="~/reconizer/$DOM/Subdomains/all-alive-subs.txt"
+ while IFS= read -r line
+  do
+     waybackurls $line | grep "=" ~/reconizer/$DOM/Archivescan/waybackurls.txt 
+ done < "$input"
+
 else
  echo "${blue} [+] Installing Waybackurls ${reset}"
  go get -u github.com/tomnomnom/waybackurls
  echo "${blue} [+] Running Waybackurls for finding archive based assets${reset}"
- cat  ~/reconizer/$DOM/Subdomains/all-alive-subs.txt | waybackurls >> ~/reconizer/$DOM/Archivescan/waybackurls.txt 
+ #cat  ~/reconizer/$DOM/Subdomains/all-alive-subs.txt | waybackurls >> ~/reconizer/$DOM/Archivescan/waybackurls.txt 
+ 
+ input="~/reconizer/$DOM/Subdomains/all-alive-subs.txt"
+ while IFS= read -r line
+  do
+     waybackurls $line | grep "=" ~/reconizer/$DOM/Archivescan/waybackurls.txt 
+ done < "$input"
 fi
 echo " "
 echo "${blue} [+] Succesfully saved as waybackurls.txt ${reset}"
